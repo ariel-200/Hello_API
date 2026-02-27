@@ -1,12 +1,11 @@
 import os
 import requests
-# from pprint import pprint
 from datetime import datetime
 
 # Minneapolis
 lat = 44.97
 lon = -93.26
-units = 'imperial'  # change to 'imperial' for quantities in Fahrenheit, miles per hour etc.
+units = 'imperial'
 
 
 # Error Handling for KeyError if api key not found
@@ -17,7 +16,6 @@ url = f'https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&uni
 # Error Handling for ConnectionError if server is down, or no internet.
 response = requests.get(url)
 weather_forecast = response.json()
-# pprint(weather_forecast)
 
 # Error Handling for KeyError if missing or wrong keys, typos
 list_forecast = weather_forecast['list']
